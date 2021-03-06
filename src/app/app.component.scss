@@ -1,0 +1,136 @@
+//DESCRIBE:main colors
+$color1:#ff6600;
+$color2: #888888;
+$color3:#fff;
+$color4:#000;
+
+//DESCRIBE:main content style
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #f6f6ef;
+    height: 100%;
+    span{
+      color: $color2;
+    }
+    a{
+      text-decoration: none;
+      color:  $color2;
+    }
+    li{
+      margin-top: 12px;
+    }
+    .comment{
+      max-width: 1000px;
+    }
+  }
+
+//DESCRIBE:header style
+.header {
+  overflow: hidden;
+  background: $color1;
+  a, label {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    line-height: 20px;
+    padding: 18px 20px;
+    cursor: pointer;
+  }
+  label:after {
+    content: "\2261";
+    font-size: 1.8em;
+  }
+  img{
+    border:1px $color3 solid;
+    margin-right: 6px;
+  }
+  .logo {
+    float: left;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #000;
+  }
+}
+
+//DESCRIBE:nav menu style
+  nav {
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    ul {
+      li {
+        display: inline;
+        font-family: "Fira Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 100;
+        a {
+          color: $color4;
+          text-decoration: none;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    ul > *:not(:first-child) {
+      border-left: solid $color2 2px;
+    }
+  }
+
+//DESCRIBE:change nav menu style in 700px
+nav {
+  max-height: 0;
+  width: 100%;
+  -webkit-transition: max-height 0.4s; 
+     -moz-transition: max-height 0.4s;
+       -o-transition: max-height 0.4s;
+          transition: max-height 0.4s;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+   padding-bottom: 10px;
+}
+  
+nav li {
+  display: block;
+  text-align: center;
+}
+  
+nav a {
+  padding: 10px;
+  width: 100%;
+}
+
+#nav { display: none; }
+
+#nav:checked ~ nav {
+  max-height: 1000px; /* nav menu height in 700px */
+}
+
+@media only screen and (min-width: 700px) {
+  
+  .header {
+    label { display: none; }
+    nav a {
+      display: inline-block;
+      padding: 20px 10px;
+      width: auto;
+    }
+  }
+  
+  nav {
+    width: auto;
+    max-height: none;
+    ul {
+      padding: 0;
+      padding-right: 10px;
+    }
+    li {
+      display: inline-block;
+      text-align: left;
+    }
+  }
+}
